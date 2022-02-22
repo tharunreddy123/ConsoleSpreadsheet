@@ -1,0 +1,37 @@
+#include <iostream> 
+#define R1 4  
+#define C1 4  
+#define R2 4  
+#define C2 4  
+void mulMat(int matrix1[][C1], int matrix2[][C2]) { 
+ int result[R1][C2]; 
+ cout << "Multiplication of given two matrices is:\n" << endl; 
+ for (int i = 0; i < R1; i++) { 
+ for (int j = 0; j < C2; j++) { 
+ result[i][j] = 0; 
+ for (int k = 0; k < R2; k++) { 
+ result[i][j] += matrix1[i][k] * matrix2[k][j]; 
+ }
+ cout << result[i][j] << "\t";  } 
+ cout << endl; 
+ } 
+} 
+int main(void) { 
+ int mat1[R1][C1]; 
+ int mat2[R2][C2]; 
+ for (int i = 0; i < R1; i++)  { 
+ for (int j = 0; j <C1; j++)  { 
+ cin>> mat1[i][j]; 
+ } 
+ } 
+ for (int i = 0; i < R2; i++)  { 
+ for (int j = 0; j <C2; j++)  { 
+ cin>> mat2[i][j]; 
+ } 
+ }
+ if (C1 != R2) { 
+ cout << "Multiplication of two matrices is not possible"<< endl;  exit(EXIT_FAILURE); 
+ } 
+ mulMat(mat1, mat2);  
+ return 0; 
+}
